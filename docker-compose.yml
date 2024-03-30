@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 2048M
+    cap_drop:
+      - NET_BIND_SERVICE
+      - SYS_PTRACE
+      - SYS_ADMIN
+      - SYS_CHROOT
+  postgres:
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 512M
+    cap_drop:
+      - NET_BIND_SERVICE
+      - SYS_PTRACE
+      - SYS_ADMIN
+      - SYS_CHROOT
+volumes:
+  postgres:

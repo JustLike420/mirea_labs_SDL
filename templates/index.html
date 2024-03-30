@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центрированный блок с текстом</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .big-block {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #000;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="big-block">
+        <div class="text" style="font-size: 24px;">Разработка безопасного программного обеспечения</div>
+        <div class="text" style="font-size: 20px;">Домашняя работа №1</div>
+        <div class="text" style="font-size: 16px;">Выполнил: Чигин В.О. БСБО-17-20</div>
+    </div>
+</div>
+</body>
+</html>
